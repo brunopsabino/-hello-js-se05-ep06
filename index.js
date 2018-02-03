@@ -6,11 +6,11 @@ const express = require("express")
 const morgan = require("morgan")
 const bodyParser = require("body-parser")
 const app = express()
+const cors = require("cors")
 
+app.use(cors())
 app.use(morgan("dev"))
-
-app.use(bodyParser.urlencoded())
-
+app.use(bodyParser.urlencoded({extended: true}))
 app.use(express.static("public"))
 
 
